@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= car.name %></title>
+</head>
+<body>
+
+    <nav>
+        <a href="/cars">All Cars</a>
+        <a href="/cars/new">Add New Car</a>
+        <a href="/cars/<%= car._id %>">Back to Car</a>
+    </nav>
+    
+
+    <h1><%= car.name %></h1>
+    <p> Your <%= car.color %> <%= car.name %> has a <%= car.chassis %> chassis and is powered by a(n) <%= car.engine %> engine. It is <%= car.driveTrain %> and deploys <%= car.weightSaving %> Weight-Reduction Protocol. This beautiful car has <%= car.craftsmanship %> craftsmanship.</p>
+    <a href="/cars">Back to All Cars</a>
+
+<!-- Delete Button -->
+    <form action="/cars/<%= car.id %>?_method=DELETE" method="POST">
+        <button type="submit">Delete</button>
+    </form>
+
+<!-- Edit Button -->
+    <a href="/cars/<%= car.id %>/edit">Edit</a>
+    <a href="/cars"></a>
+</body>
+</html>

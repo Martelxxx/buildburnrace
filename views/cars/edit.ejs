@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+        width: 50%;
+        margin: 0 auto;
+    
+    }
+    
+    </style>
+    
+<nav>
+    <a href="/cars">All Cars</a>
+    <a href="/cars/new">Add New Car</a>
+    <a href="/cars/<%= car._id %>">Back to Car</a>
+</nav>
+
+    <body>
+        <h1>Edit Your Car!</h1>
+        <form action="/cars/<%=car._id%>?_method=PUT" method="POST">
+    
+    <!-- Name Your New Car -->
+    
+            <label for=""name>Name your new Car:</label>
+            <input id="name" type="text" name="name" value="<%= car.name %>">
+    <br>
+    <!-- Customize Your New Car -->
+    
+            <label for ="color">Choose a color:</label>
+            <input id="color" type="text" name="color" value="<%= car.color %>">
+    <br>
+            <label for="chassis">Choose a chassis:</label>
+            <select id="chassis" name="chassis" onchange="calculateTotals()">
+                <option value="<%= chassis.type %>">--Please choose an option--</option>
+                <% chassis.forEach(chassis => { %>
+                    <option value="<%= chassis.type %>"
+                        data-power="<%= chassis.power %>"
+                        data-weight="<%= chassis.weight %>"
+                        data-cost="<%= chassis.cost %>"
+                        data-consumption="<%= chassis.consumption %>"
+                        data-torque="<%= chassis.torque %>">
+                        <%= chassis.type %>
+                    </option>
+                <% }) %>
+            </select>
+    <br>
+            <label for="engine">Choose an engine:</label>
+            <select id="engine" name="engine" onchange="calculateTotals()">
+                <option value="<%= engine.type %>">--Please choose an option--</option>
+                <% engine.forEach(engine => { %>
+                    <option value="<%= engine.type %>"
+                        data-power="<%= engine.power %>"
+                        data-weight="<%= engine.weight %>"
+                        data-cost="<%= engine.cost %>"
+                        data-consumption="<%= engine.consumption %>"
+                        data-torque="<%= engine.torque %>">
+                        <%= engine.type %>
+                    </option>
+                    <% }) %>
+            </select>
+    <br>        
+            <label for="driveTrain">Choose a Drive Train:</label>
+            <select id="driveTrain" name="driveTrain" onchange="calculateTotals()">
+                <option value="<%= driveTrain.type %>">--Please choose an option--</option>
+                <% driveTrain.forEach(driveTrain => { %>
+                    <option value="<%= driveTrain.type %>"
+                        data-power="<%= driveTrain.power %>"
+                        data-weight="<%= driveTrain.weight %>"
+                        data-cost="<%= driveTrain.cost %>"
+                        data-consumption="<%= driveTrain.consumption %>"
+                        data-torque="<%= driveTrain.torque %>">
+                        <%= driveTrain.type %>
+                    </option>
+                <% }) %>
+            </select>
+    <br>
+            <label for="weightSaving">Choose a Weight Saving Package:</label>
+            <select id="weightSaving" name="weightSaving" onchange="calculateTotals()">
+                <option value="<%= weightSaving.type %>">--Please choose an option--</option>
+                <% weightSaving.forEach(weightSaving => { %>
+                    <option value="<%= weightSaving.type %>"
+                        data-power="<%= weightSaving.power %>"
+                        data-weight="<%= weightSaving.weight %>"
+                        data-cost="<%= weightSaving.cost %>"
+                        data-consumption="<%= weightSaving.consumption %>"
+                        data-torque="<%= weightSaving.torque %>">
+                        <%= weightSaving.type %>
+                    </option>
+                <% }) %>
+            </select>
+    <br>
+            <label for="craftsmanship">Choose a Craftsmanship:</label>
+            <select id="craftsmanship" name="craftsmanship" onchange="calculateTotals()">
+            <option value="<%= craftsmanship.type %>">--Please choose an option--</option>
+            <% craftsmanship.forEach(craftsmanship => { %>
+                <option value="<%= craftsmanship.type %>"
+                    data-power="<%= craftsmanship.power %>"
+                    data-weight="<%= craftsmanship.weight %>"
+                    data-cost="<%= craftsmanship.cost %>"
+                    data-consumption="<%= craftsmanship.consumption %>"
+                    data-torque="<%= craftsmanship.torque %>">
+                    <%= craftsmanship.type %>
+                </option>
+            <% }) %>
+        </select>
+        <br>
+        <button type="submit">Edit Car</button>
+        </form>
+    
+        <div>New Total Power: <span id="totalPower">0</span></div>
+        <div>New Total Torque: <span id="totalTorque">0</span></div>
+        <div>New Total Cost: <span id="totalCost">0</span></div>
+        <div>New Total Weight: <span id="totalWeight">0</span></div>
+        <div>New Total Consumption: <span id="totalConsumption">0</span></div>
+        <div>New Max Speed: <span id="maxspeed">0</span></div>
+        <div>New Acceleration: <span id="acceleration">0</span></div>
+
+        <a href="/cars">Back to All Cars</a>
+
+    <script>
+    
+    function calculateTotals() {
+        let totalPower = 0, totalCost = 0, totalWeight = 0, totalConsumption = 0, totalTorque = 0;
+    
+        // Retrieve dropdown elements
+        const dropdowns = [
+            document.getElementById('chassis'),
+            document.getElementById('engine'),
+            document.getElementById('driveTrain'),
+            document.getElementById('weightSaving'),
+            document.getElementById('craftsmanship')
+        ];
+    
+        // Iterate through each dropdown and update totals
+        dropdowns.forEach(dropdown => {
+            const selectedOption = dropdown.options[dropdown.selectedIndex];
+            if (selectedOption && selectedOption.value) {
+                totalPower += parseFloat(selectedOption.dataset.power) || 0;
+                totalCost += parseFloat(selectedOption.dataset.cost) || 0;
+                totalWeight += parseFloat(selectedOption.dataset.weight) || 0;
+                totalConsumption += parseFloat(selectedOption.dataset.consumption) || 0;
+                totalTorque += parseFloat(selectedOption.dataset.torque) || 0;
+            }
+        });
+    
+        // Max Speed Calculation
+        const maxspeed = (Math.sqrt(totalPower / totalWeight) * 500) * 0.621371
+        const acceleration = (totalTorque * 3) / totalWeight
+        const budget = 208000 - totalCost
+    
+        // Display totals in the HTML
+        document.getElementById('totalPower').textContent = totalPower + ' HP';
+        document.getElementById('totalCost').textContent = '$' + totalCost.toLocaleString('en-US', {minimumFractionDigits: 0});
+        document.getElementById('totalWeight').textContent = totalWeight < 0 ? 'Anti-gravity' : totalWeight + " kg";
+        document.getElementById('totalConsumption').textContent = totalConsumption < 0 ? "Electric Vehicle" : totalConsumption + " L/100km";
+        document.getElementById('totalTorque').textContent = totalTorque + " lb-ft";
+        document.getElementById('maxspeed').textContent = maxspeed.toFixed(0) + " MPH";
+        document.getElementById('acceleration').textContent = acceleration.toFixed(2) + " second(s) 0-60 MPH";
+        document.getElementById('budget').textContent = "$" + budget.toLocaleString('en-US', {minimumFractionDigits: 0});
+    }
+    
+    </script>
+    
+    </body>
+    </html>

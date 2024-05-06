@@ -1,0 +1,95 @@
+chassis = [
+    { type: "Steel",
+      power: 0,
+      cost: 10000,
+      weight: 1000,
+      consumption: 10,
+      torque: 0
+    },
+    { type: "Aluminum",
+      power: 0,
+      cost: 15000,
+      weight: 800,
+      consumption: 8,
+      torque: -10
+    },
+    { type: "Carbon Fiber",
+      power: 0,
+      cost: 24000,
+      weight: 600,
+      consumption: 6,
+      torque: -5 
+    },
+    { type: "Titanium",
+      power: 0,
+      cost: 38000,
+      weight: 400,
+      consumption: 4,
+      torque: -3
+    },
+    { type: "Graphene",
+      power: 0,
+      cost: 56000,
+      weight: 200,
+      consumption: 2,
+      torque: -2
+    },
+    { type: "Magnesium Alloy",
+      power: 0,
+      cost: 18000,
+      weight: 700,
+      consumption: 7,
+      torque: -8
+    },
+    { type: "Kevlar",
+      power: 0,
+      cost: 30000,
+      weight: 500,
+      consumption: 5,
+      torque: -4
+    },
+    { type: "Aerogel",
+      power: 0,
+      cost: 45000,
+      weight: 300,
+      consumption: 3,
+      torque: -1
+    },
+    { type: "Nanotube",
+      power: 0,
+      cost: 60000,
+      weight: 180,
+      consumption: 1.5,
+      torque: -1.5
+    },
+    { type: "Diamond Fiber",
+      power: 0,
+      cost: 75000,
+      weight: 150,
+      consumption: 1,
+      torque: -1
+    },
+    { type: "Liquid Metal",
+      power: 0,
+      cost: 65000,
+      weight: 250,
+      consumption: 2.5,
+      torque: -2.5
+    },
+    { type: "Bio-composite",
+      power: 0,
+      cost: 42000,
+      weight: 350,
+      consumption: 3.5,
+      torque: -2
+    },
+    { type: "Silk Fiber",
+      power: 0,
+      cost: 48000,
+      weight: 280,
+      consumption: 2.8,
+      torque: -1.8
+    }
+]
+
+module.exports = chassis;

@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 3fr 1fr;
+            grid-template-areas: 
+            "userCar raceDisplay opponentCar";
+            height: 100%;
+        }
+        .userCar {
+            grid-area: userCar;
+            padding: 20px;
+            background-color: #f4f4f4;
+            height: 100vh;
+        }
+        .raceDisplay {
+            margin-top: 20px;
+            margin-left: 200px;
+            margin-right: 200px;
+            grid-area: raceDisplay;
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            background-color: #ddd;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            align-self: flex-start;
+        }
+        .versus {
+            font-size: 48px;
+            align-self: flex-start;
+            justify-self: center;
+        }
+        .raceData1 {
+            border: 1px solid #000;
+            margin: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            text-align: center;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .raceData2 {
+            border: 1px solid #000;
+            margin: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            text-align: center;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .raceData3 {
+            border: 1px solid #000;
+            margin: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            text-align: center;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .raceData4 {
+            border: 1px solid #000;
+            margin: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            text-align: center;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .raceData5 {
+            border: 1px solid #000;
+            margin: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            text-align: center;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .raceData6 {
+            border: 1px solid #000;
+            margin: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            text-align: center;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .raceData1 p {
+            margin: 10px;
+            border: 1px solid #000; 
+            padding: 10px;
+            opacity: 0;
+            animation: fadeIn 2s ease-in forwards;
+            animation-delay: 1s
+        } 
+        .raceData2 p {
+            margin: 10px;
+            border: 1px solid #000; 
+            padding: 10px; 
+            opacity: 0;
+            animation: fadeIn 2s ease-in forwards;
+            animation-delay: 3s
+        }
+        .raceData3 p {
+            margin: 10px;
+            border: 1px solid #000; 
+            padding: 10px;
+            opacity: 0;
+            animation: fadeIn 2s ease-in forwards;
+            animation-delay: 5s 
+        }
+        .raceData4 p {
+            margin: 10px;
+            border: 1px solid #000; 
+            padding: 10px;
+            opacity: 0;
+            animation: fadeIn 2s ease-in forwards;
+            animation-delay: 7s 
+        }
+        .raceData5 p {
+            margin: 10px;
+            border: 1px solid #000; 
+            padding: 10px;
+            opacity: 0;
+            animation: fadeIn 2s ease-in forwards;
+            animation-delay: 9s 
+        }
+        .raceData6 p {
+            margin: 10px;
+            border: 1px solid #000; 
+            padding: 10px;
+            opacity: 0;
+            animation: fadeIn 2s ease-in forwards;
+            animation-delay: 11s 
+        }
+        .victor {
+            opacity: 0;
+            animation: fadeIn 2s ease-in forwards;
+            animation-delay: 13s
+        }
+        .opponentCar {
+            grid-area: opponentCar;
+            padding: 20px;
+            background-color: #f4f4f4;
+            height: 100vh;
+        }
+        @keyframes fadeIn {
+         to{
+            opacity: 1;
+         }  
+        }
+    </style>
+
+</head>
+
+<nav>
+    <a href="/">Home Page</a>
+    <a href="/cars">All Cars</a>
+    <a href="/cars/new">Add New Car</a>
+</nav>
+
+<body>
+
+    <h1>Welcome to the Race!</h1>
+    
+<!-- User Car -->
+<% 
+            let userCarChassisCost, userCarDriveTrainCost, userCarEngineCost, userCarCraftsmanshipCost, userCarWeightSavingCost;
+
+            chassis.forEach(chassisItem => {
+                if(chassisItem.type === userCar.chassis) {
+                    userCarChassisCost = chassisItem.cost;
+                }
+            });
+
+            driveTrain.forEach(drivetrainItem => {
+                if(drivetrainItem.type === userCar.driveTrain) {
+                    userCarDriveTrainCost = drivetrainItem.cost;
+                }
+            });
+
+            engine.forEach(engineItem => {
+                if(engineItem.type === userCar.engine) {
+                    userCarEngineCost = engineItem.cost;
+                }
+            });
+
+            craftsmanship.forEach(craftsmanshipItem => {
+                if(craftsmanshipItem.type === userCar.craftsmanship) {
+                    userCarCraftsmanshipCost = craftsmanshipItem.cost;
+                }
+            });
+
+            weightSaving.forEach(weightSavingItem => {
+                if(weightSavingItem.type === userCar.weightSaving) {
+                    userCarWeightSavingCost = weightSavingItem.cost;
+                }
+            });
+
+// Power //
+             
+            let userCarChassisPower, userCarDriveTrainPower, userCarEnginePower, userCarCraftsmanshipPower, userCarWeightSavingPower;
+
+            chassis.forEach(chassisItem => {
+                if(chassisItem.type === userCar.chassis) {
+                    userCarChassisPower = chassisItem.power;
+                }
+            });
+
+            driveTrain.forEach(drivetrainItem => {
+                if(drivetrainItem.type === userCar.driveTrain) {
+                    userCarDriveTrainPower = drivetrainItem.power;
+                }
+            });
+
+            engine.forEach(engineItem => {
+                if(engineItem.type === userCar.engine) {
+                    userCarEnginePower = engineItem.power;
+                }
+            });
+
+            craftsmanship.forEach(craftsmanshipItem => {
+                if(craftsmanshipItem.type === userCar.craftsmanship) {
+                    userCarCraftsmanshipPower = craftsmanshipItem.power;
+                }
+            });
+
+            weightSaving.forEach(weightSavingItem => {
+                if(weightSavingItem.type === userCar.weightSaving) {
+                    userCarWeightSavingPower = weightSavingItem.power;
+                }
+            });
+
+// Torque //
+
+            let userCarChassisTorque, userCarDriveTrainTorque, userCarEngineTorque, userCarCraftsmanshipTorque, userCarWeightSavingTorque;
+
+            chassis.forEach(chassisItem => {
+                if(chassisItem.type === userCar.chassis) {
+                    userCarChassisTorque = chassisItem.torque;
+                }
+            });
+
+            driveTrain.forEach(drivetrainItem => {
+                if(drivetrainItem.type === userCar.driveTrain) {
+                    userCarDriveTrainTorque = drivetrainItem.torque;
+                }
+            });
+
+            engine.forEach(engineItem => {
+                if(engineItem.type === userCar.engine) {
+                    userCarEngineTorque = engineItem.torque;
+                }
+            });
+
+            craftsmanship.forEach(craftsmanshipItem => {
+                if(craftsmanshipItem.type === userCar.craftsmanship) {
+                    userCarCraftsmanshipTorque = craftsmanshipItem.torque;
+                }
+            });
+
+            weightSaving.forEach(weightSavingItem => {
+                if(weightSavingItem.type === userCar.weightSaving) {
+                    userCarWeightSavingTorque = weightSavingItem.torque;
+                }
+            });
+
+// Weight //
+
+            let userCarChassisWeight, userCarDriveTrainWeight, userCarEngineWeight, userCarCraftsmanshipWeight, userCarWeightSavingWeight;
+
+            chassis.forEach(chassisItem => {
+                if(chassisItem.type === userCar.chassis) {
+                    userCarChassisWeight = chassisItem.weight;
+                }
+            });
+
+            driveTrain.forEach(drivetrainItem => {
+                if(drivetrainItem.type === userCar.driveTrain) {
+                    userCarDriveTrainWeight = drivetrainItem.weight;
+                }
+            });
+
+            engine.forEach(engineItem => {
+                if(engineItem.type === userCar.engine) {
+                    userCarEngineWeight = engineItem.weight;
+                }
+            });
+
+            craftsmanship.forEach(craftsmanshipItem => {
+                if(craftsmanshipItem.type === userCar.craftsmanship) {
+                    userCarCraftsmanshipWeight = craftsmanshipItem.weight;
+                }
+            });
+
+            weightSaving.forEach(weightSavingItem => {
+                if(weightSavingItem.type === userCar.weightSaving) {
+                    userCarWeightSavingWeight = weightSavingItem.weight;
+                }
+            });
+
+// Totals //
+
+            let totalCost = userCarChassisCost + userCarDriveTrainCost + userCarEngineCost + userCarCraftsmanshipCost + userCarWeightSavingCost;
+            let totalPower = userCarChassisPower + userCarDriveTrainPower + userCarEnginePower + userCarCraftsmanshipPower + userCarWeightSavingPower;
+            let totalTorque = userCarChassisTorque + userCarDriveTrainTorque + userCarEngineTorque + userCarCraftsmanshipTorque + userCarWeightSavingTorque;
+            let totalWeight = userCarChassisWeight + userCarDriveTrainWeight + userCarEngineWeight + userCarCraftsmanshipWeight + userCarWeightSavingWeight;
+            let maxspeed = (Math.sqrt(totalPower / totalWeight) * 500) * 0.621371
+            let acceleration = (totalTorque * 1.5) / totalWeight * 4.2
+            let tMax = (((totalPower  * 5252) / maxspeed) + (maxspeed / totalWeight))  
+            let maxT = (maxspeed / tMax) * 3000
+            let av = (0 + maxspeed) / 2
+            let dist = (maxT / 3600)
+            let time = av * dist
+            let mile = 1 - time
+            let cov = (mile / maxspeed) * 3600
+            let mileTime = maxT + cov
+            let zto = (0.5 * (26.8224/acceleration) * (acceleration * acceleration))
+            let ztoMax = (0.5 * ((maxspeed * 0.44704 / maxT) * (maxT * maxT)))
+            %>
+
+<hr>
+<div class="grid-container">
+    <div class="userCar">
+
+            <h2><%= userCar.name %></h2> 
+            <p>Total Power: <%= totalPower + " HP" %></p>
+            <p>Total Torque: <%= totalTorque + " lb-ft" %></p>
+            <p>Total Weight: <%= totalWeight + " lbs" %></p>
+            <p>Max Speed: <%= maxspeed.toFixed(0) + " mph" %></p>
+            <p>0 to 60: <%= acceleration.toFixed(2) + " seconds" %></p>
+            <p>Max Speed Time: <%= maxT.toFixed(2) + " seconds" %></p>
+            <p>1 Mile Time: <%= mileTime.toFixed(2) + " seconds" %>
+            <p>0 to 60 distance: <%= zto.toFixed(2) + " meters" %>
+            <p>0 to Max Speed distance: <%= ztoMax.toFixed(0) + " meters" %>
+            
+        <p>Chassis: <%= userCar.chassis %></p> 
+        <p>Engine: <%= userCar.engine %></p> 
+        <p>Drive Train: <%= userCar.driveTrain %></p> 
+        <p>Weight Package: <%= userCar.weightSaving %></p> 
+        <p>Craftsmanship: <%= userCar.craftsmanship %></p> 
+
+    </div>
+
+    <hr>
+
+        <br>
+
+
+<br>
+<!-- Opponent Car -->
+<%
+let opponentsChassisCost, opponentsDriveTrainCost, opponentsEngineCost, opponentsCraftsmanshipCost, opponentsWeightSavingCost;  
+
+chassis.forEach(chassisItem => {
+    if(chassisItem.type === opponents.chassis) {
+        opponentsChassisCost = chassisItem.cost;
+    }
+});
+
+driveTrain.forEach(drivetrainItem => {
+    if(drivetrainItem.type === opponents.driveTrain) {
+        opponentsDriveTrainCost = drivetrainItem.cost;
+    }
+});
+
+engine.forEach(engineItem => {
+    if(engineItem.type === opponents.engine) {
+        opponentsEngineCost = engineItem.cost;
+    }
+}); 
+
+craftsmanship.forEach(craftsmanshipItem => {
+    if(craftsmanshipItem.type === opponents.craftsmanship) {
+        opponentsCraftsmanshipCost = craftsmanshipItem.cost;
+    }
+});
+
+weightSaving.forEach(weightSavingItem => {
+    if(weightSavingItem.type === opponents.weightSaving) {
+        opponentsWeightSavingCost = weightSavingItem.cost;
+    }
+});
+
+// Power //
+
+let opponentsChassisPower, opponentsDriveTrainPower, opponentsEnginePower, opponentsCraftsmanshipPower, opponentsWeightSavingPower;
+
+chassis.forEach(chassisItem => {
+    if(chassisItem.type === opponents.chassis) {
+        opponentsChassisPower = chassisItem.power;
+    }
+});
+
+driveTrain.forEach(drivetrainItem => {
+    if(drivetrainItem.type === opponents.driveTrain) {
+        opponentsDriveTrainPower = drivetrainItem.power;
+    }
+});
+
+engine.forEach(engineItem => {
+    if(engineItem.type === opponents.engine) {
+        opponentsEnginePower = engineItem.power;
+    }
+});
+
+craftsmanship.forEach(craftsmanshipItem => {
+    if(craftsmanshipItem.type === opponents.craftsmanship) {
+        opponentsCraftsmanshipPower = craftsmanshipItem.power;
+    }
+});
+
+weightSaving.forEach(weightSavingItem => {
+    if(weightSavingItem.type === opponents.weightSaving) {
+        opponentsWeightSavingPower = weightSavingItem.power;
+    }
+});
+
+// Torque //
+
+let opponentsChassisTorque, opponentsDriveTrainTorque, opponentsEngineTorque, opponentsCraftsmanshipTorque, opponentsWeightSavingTorque;
+
+chassis.forEach(chassisItem => {
+    if(chassisItem.type === opponents.chassis) {
+        opponentsChassisTorque = chassisItem.torque;
+    }
+});
+
+driveTrain.forEach(drivetrainItem => {
+    if(drivetrainItem.type === opponents.driveTrain) {
+        opponentsDriveTrainTorque = drivetrainItem.torque;
+    }
+}); 
+
+engine.forEach(engineItem => {
+    if(engineItem.type === opponents.engine) {
+        opponentsEngineTorque = engineItem.torque;
+    }
+});
+
+craftsmanship.forEach(craftsmanshipItem => {
+    if(craftsmanshipItem.type === opponents.craftsmanship) {
+        opponentsCraftsmanshipTorque = craftsmanshipItem.torque;
+    }
+});
+
+weightSaving.forEach(weightSavingItem => {
+    if(weightSavingItem.type === opponents.weightSaving) {
+        opponentsWeightSavingTorque = weightSavingItem.torque;
+    }
+});
+
+// Weight //
+
+let opponentsChassisWeight, opponentsDriveTrainWeight, opponentsEngineWeight, opponentsCraftsmanshipWeight, opponentsWeightSavingWeight;
+
+chassis.forEach(chassisItem => {
+    if(chassisItem.type === opponents.chassis) {
+        opponentsChassisWeight = chassisItem.weight;
+    }
+});
+
+driveTrain.forEach(drivetrainItem => {
+    if(drivetrainItem.type === opponents.driveTrain) {
+        opponentsDriveTrainWeight = drivetrainItem.weight;
+    }
+});
+
+engine.forEach(engineItem => {
+    if(engineItem.type === opponents.engine) {
+        opponentsEngineWeight = engineItem.weight;
+    }
+});
+
+craftsmanship.forEach(craftsmanshipItem => {
+    if(craftsmanshipItem.type === opponents.craftsmanship) {
+        opponentsCraftsmanshipWeight = craftsmanshipItem.weight;
+    }
+});
+
+weightSaving.forEach(weightSavingItem => {
+    if(weightSavingItem.type === opponents.weightSaving) {
+        opponentsWeightSavingWeight = weightSavingItem.weight;
+    }
+});
+
+// Totals //
+
+let totalOpponentCost = opponentsChassisCost + opponentsDriveTrainCost + opponentsEngineCost + opponentsCraftsmanshipCost + opponentsWeightSavingCost;
+let totalOpponentPower = opponentsChassisPower + opponentsDriveTrainPower + opponentsEnginePower + opponentsCraftsmanshipPower + opponentsWeightSavingPower;
+let totalOpponentTorque = opponentsChassisTorque + opponentsDriveTrainTorque + opponentsEngineTorque + opponentsCraftsmanshipTorque + opponentsWeightSavingTorque;
+let totalOpponentWeight = opponentsChassisWeight + opponentsDriveTrainWeight + opponentsEngineWeight + opponentsCraftsmanshipWeight + opponentsWeightSavingWeight;
+let maxspeedOpponent = (Math.sqrt(totalOpponentPower / totalOpponentWeight) * 500) * 0.621371
+let accelerationOpponent = (totalOpponentTorque * 1.5) / totalOpponentWeight * 4.2
+let tMaxOp = (((totalOpponentPower  * 5252) / maxspeedOpponent) + (maxspeedOpponent / totalOpponentWeight))  
+let maxTOP = (maxspeedOpponent / tMaxOp) * 3000
+let avOP = (0 + maxspeedOpponent) / 2
+let distOP = (maxTOP / 3600)
+let timeOP = avOP * distOP
+let mileOP = 1 - timeOP
+let covOP = (mileOP / maxspeedOpponent) * 3600
+let mileTimeOP = maxTOP + covOP
+let ztoOP = (0.5 * (26.8224/accelerationOpponent) * (accelerationOpponent * accelerationOpponent))
+let ztoMaxOP = (0.5 * ((maxspeedOpponent * 0.44704 / maxTOP) * (maxTOP * maxTOP)))
+%>
+<hr>
+
+<div class="opponentCar">
+
+<h2><%= opponents.name %></h2> 
+            <p>Total Power: <%= totalOpponentPower + " HP" %></p>
+            <p>Total Torque: <%= totalOpponentTorque + " lb-ft" %></p>
+            <p>Total Weight: <%= totalOpponentWeight + " lbs" %></p>
+            <p>Max Speed: <%= maxspeedOpponent.toFixed(0) + " mph" %></p>
+            <p>0 to 60: <%= accelerationOpponent.toFixed(2) + " seconds" %></p>
+            <p>Max Speed Time: <%= maxTOP.toFixed(2) + " seconds" %></p>
+            <p>1 Mile Time: <%= mileTimeOP.toFixed(2) + " seconds" %></p>
+            <p>0 to 60 distance: <%= ztoOP.toFixed(2) + " meters" %>
+            <p>0 to Max Speed distance: <%= ztoMaxOP.toFixed(0) + " meters" %>
+        
+        <p>Chassis: <%= opponents.chassis %></p> 
+        <p>Engine: <%= opponents.engine %></p> 
+        <p>Drive Train: <%= opponents.driveTrain %></p> 
+        <p>Weight Package: <%= opponents.weightSaving %></p> 
+        <p>Craftsmanship: <%= opponents.craftsmanship %></p> 
+
+    </div>
+</body>
+
+
+    <hr>
+<div class="raceDisplay">
+    
+    <%
+    // for user //
+    let trackLength = Math.floor(Math.random() * (3500 - 500 + 1)) + 500;
+    let checkPoint1 = trackLength;
+    let userCarMaxSpeed = maxspeed / 2.237;
+    let ratio = Math.min(checkPoint1 / ztoMax, 1);
+    let pace = userCarMaxSpeed * ratio;
+    let trackRatio = checkPoint1 / pace;
+    let trackTime = trackRatio + acceleration;
+
+    let trackLength2 = Math.floor(Math.random() * (3500 - 500 + 1)) + 500;
+    let checkPoint2 = trackLength2;
+    let userCarMaxSpeed2 = maxspeed / 2.237;
+    let ratio2 = Math.min(checkPoint2 / ztoMax, 1);
+    let pace2 = userCarMaxSpeed2 * ratio2;
+    let trackRatio2 = checkPoint2 / pace2;
+    let trackTime2 = trackRatio2 + acceleration;
+
+    let trackLength3 = Math.floor(Math.random() * (3500 - 500 + 1)) + 500;
+    let checkPoint3 = trackLength3;
+    let userCarMaxSpeed3 = maxspeed / 2.237;
+    let ratio3 = Math.min(checkPoint3 / ztoMax, 1);
+    let pace3 = userCarMaxSpeed3 * ratio3;
+    let trackRatio3 = checkPoint3 / pace3;
+    let trackTime3 = trackRatio3 + acceleration;
+
+    let trackLength4 = Math.floor(Math.random() * (3500 - 500 + 1)) + 500;
+    let checkPoint4 = trackLength4;
+    let userCarMaxSpeed4 = maxspeed / 2.237;
+    let ratio4 = Math.min(checkPoint4 / ztoMax, 1);
+    let pace4 = userCarMaxSpeed4 * ratio4;
+    let trackRatio4 = checkPoint4 / pace4;
+    let trackTime4 = trackRatio4 + acceleration;
+
+    let trackLength5 = Math.floor(Math.random() * (3500 - 500 + 1)) + 500;
+    let checkPoint5 = trackLength5;
+    let userCarMaxSpeed5 = maxspeed / 2.237;
+    let ratio5 = Math.min(checkPoint5 / ztoMax, 1);
+    let pace5 = userCarMaxSpeed5 * ratio5;
+    let trackRatio5 = checkPoint5 / pace5;
+    let trackTime5 = trackRatio5 + acceleration;
+    
+
+    // for opponent //
+    let checkPoint1Opponent = trackLength;
+    let opponentMaxSpeed = maxspeedOpponent / 2.237;
+    let ratioOpponent = Math.min(checkPoint1Opponent / ztoMaxOP, 1);
+    let paceOpponent = opponentMaxSpeed * ratioOpponent;
+    let trackRatioOpponent = checkPoint1Opponent / paceOpponent;
+    let trackTimeOpponent = trackRatioOpponent + accelerationOpponent; 
+
+    let checkPoint2Opponent = trackLength2;
+    let opponentMaxSpeed2 = maxspeedOpponent / 2.237;
+    let ratioOpponent2 = Math.min(checkPoint2Opponent / ztoMaxOP, 1);
+    let paceOpponent2 = opponentMaxSpeed2 * ratioOpponent2;
+    let trackRatioOpponent2 = checkPoint2Opponent / paceOpponent2;
+    let trackTimeOpponent2 = trackRatioOpponent2 + accelerationOpponent;
+
+    let checkPoint3Opponent = trackLength3;
+    let opponentMaxSpeed3 = maxspeedOpponent / 2.237;
+    let ratioOpponent3 = Math.min(checkPoint3Opponent / ztoMaxOP, 1);
+    let paceOpponent3 = opponentMaxSpeed3 * ratioOpponent3;
+    let trackRatioOpponent3 = checkPoint3Opponent / paceOpponent3;
+    let trackTimeOpponent3 = trackRatioOpponent3 + accelerationOpponent;
+
+    let checkPoint4Opponent = trackLength4;
+    let opponentMaxSpeed4 = maxspeedOpponent / 2.237;
+    let ratioOpponent4 = Math.min(checkPoint4Opponent / ztoMaxOP, 1);
+    let paceOpponent4 = opponentMaxSpeed4 * ratioOpponent4;
+    let trackRatioOpponent4 = checkPoint4Opponent / paceOpponent4;
+    let trackTimeOpponent4 = trackRatioOpponent4 + accelerationOpponent;
+
+    let checkPoint5Opponent = trackLength5;
+    let opponentMaxSpeed5 = maxspeedOpponent / 2.237;
+    let ratioOpponent5 = Math.min(checkPoint5Opponent / ztoMaxOP, 1);
+    let paceOpponent5 = opponentMaxSpeed5 * ratioOpponent5;
+    let trackRatioOpponent5 = checkPoint5Opponent / paceOpponent5;
+    let trackTimeOpponent5 = trackRatioOpponent5 + accelerationOpponent;
+
+    // totals //
+    let totalTrackLength = checkPoint1 + checkPoint2 + checkPoint3 + checkPoint4 + checkPoint5;
+    let totalTrackTime = trackTime + trackTime2 + trackTime3 + trackTime4 + trackTime5;
+    let totalTrackTimeOpponent = trackTimeOpponent + trackTimeOpponent2 + trackTimeOpponent3 + trackTimeOpponent4 + trackTimeOpponent5;
+    %>
+    
+    <div class="raceData1">
+    <p>Check Point 1: <%= checkPoint1 %>  meters</p><br>  
+    <p>Your time: <%= trackTime.toFixed(2) %> seconds</p><br>
+    <p>Opponent time: <%= trackTimeOpponent.toFixed(2) %> seconds</p>
+    </div>
+    <div class="raceData2">
+        <p>Check Point 2: <%= checkPoint2 %> meters</p><br>
+        <p>Your time: <%= trackTime2.toFixed(2) %> seconds</p><br>
+        <p>Opponent time: <%= trackTimeOpponent2.toFixed(2) %> seconds</p>
+    </div>
+    <div class="raceData3">
+        <p>Check Point 3: <%= checkPoint3 %> meters</p><br>
+        <p>Your time: <%= trackTime3.toFixed(2) %> seconds</p><br>
+        <p>Opponent time: <%= trackTimeOpponent3.toFixed(2) %> seconds</p>
+        </div>
+    <div class="raceData4">
+        <p>Check Point 4: <%= checkPoint4 %> meters</p><br>
+        <p>Your time: <%= trackTime4.toFixed(2) %> seconds</p><br>
+        <p>Opponent time: <%= trackTimeOpponent4.toFixed(2) %> seconds</p>
+        </div>
+    <div class="raceData5">
+        <p>Check Point 5: <%= checkPoint5 %> meters</p><br>
+        <p>Your time: <%= trackTime5.toFixed(2) %> seconds</p><br>
+        <p>Opponent time: <%= trackTimeOpponent5.toFixed(2) %> seconds</p>
+        </div>
+    <div class="raceData6">
+        <p>Total Track Length: <%= totalTrackLength %> meters</p><br>
+        <p>Your total time: <%= totalTrackTime.toFixed(2) %> seconds</p><br>
+        <p>Opponent total time: <%= totalTrackTimeOpponent.toFixed(2) %> seconds</p>
+        </div>   
+        <div class="victor">
+            <% if(totalTrackTime < totalTrackTimeOpponent) { %>
+                <h2>You Win!</h2>
+            <% } else { %>
+                <h2>You Lose!</h2>
+            <% } %>
+        </div> 
+        <%= checkPoint5Opponent %>
+        <%= checkPoint4Opponent %>
+        <%= checkPoint3Opponent %>
+        <%= checkPoint2Opponent %>
+        <%= checkPoint1Opponent %>
+
+        <%= trackLength5 %>
+        <%= trackLength4 %>
+        <%= trackLength3 %>
+        <%= trackLength2 %>
+        <%= trackLength %>
+        
+    </div>
+    </div>
+    <hr>
+
+</html>
