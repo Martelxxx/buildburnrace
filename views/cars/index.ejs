@@ -3,7 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
     <title>Document</title>
+    <style>
+
+        nav {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            padding: 20px;
+        }
+
+        body {
+            font-family: 'Cinzel', serif;
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(to bottom, white, silver); 
+        }
+        .container {
+            gap: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 200px;
+            margin: 200px;
+            height: 500px;
+            width: 1700px;
+            background-image: url('/assets/showroom.png');
+            background-size: cover;
+            box-shadow: inset 0 0 500px 100px rgb(255, 255, 255);
+            border-radius: 25px;
+        }
+        form {
+            font-family: 'Cinzel', serif;
+            color: red;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: left;
+            width: 50%;
+            margin: 0 auto;
+        }
+        .show {
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.9);
+            color: white;
+        }
+
+    </style>
 </head>
 <body>
 
@@ -14,10 +63,16 @@
     </nav>
     
     <h1>All Cars</h1>
+
+    <div class="container">
+        <div class="show">
     <ul>
 <% cars.forEach(car => { %>
     <li><a href="/cars/<%= car.id %>"><%= car.name %></a></li>
+    <br>
 <% }) %>
     </ul>
+    </div>
+    </div>
 </body>
 </html>

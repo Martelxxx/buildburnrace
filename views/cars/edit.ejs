@@ -3,34 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
+    <title>BBB: Edit</title>
 </head>
 <style>
 
+nav {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            padding: 20px;
+        }
+
     body {
+        font-family: 'Cinzel', serif;
         display: flex;
         flex-direction: column;
+        background: linear-gradient(to bottom, white, silver); 
     }
-    
-    form {
-        display: flex;
-        flex-direction: column;
-        justify-content: left;
-        width: 50%;
-        margin: 0 auto;
-    
-    }
+    .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 200px;
+    margin: 200px;
+    height: 500px;
+    width: 1700px;
+    background-image: url('/assets/mecha.png');
+    background-size: cover;
+    box-shadow: inset 0 0 500px 100px rgb(255, 255, 255);
+    border-radius: 25px;
+} 
+form {
+    font-family: 'Cinzel', serif;
+    color: red;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    width: 50%;
+    margin: 0 auto;
+}
     
     </style>
     
 <nav>
+    <a href="/">Home</a>
     <a href="/cars">All Cars</a>
-    <a href="/cars/new">Add New Car</a>
-    <a href="/cars/<%= car._id %>">Back to Car</a>
+    <a href="/cars/new">Add New Car</a> 
 </nav>
 
     <body>
+
+        <div class="container">
+
         <h1>Edit Your Car!</h1>
+
         <form action="/cars/<%=car._id%>?_method=PUT" method="POST">
     
     <!-- Name Your New Car -->
@@ -40,8 +70,6 @@
     <br>
     <!-- Customize Your New Car -->
     
-            <label for ="color">Choose a color:</label>
-            <input id="color" type="text" name="color" value="<%= car.color %>">
     <br>
             <label for="chassis">Choose a chassis:</label>
             <select id="chassis" name="chassis" onchange="calculateTotals()">
@@ -120,6 +148,8 @@
         <br>
         <button type="submit">Edit Car</button>
         </form>
+
+        </div>
     
         <div>New Total Power: <span id="totalPower">0</span></div>
         <div>New Total Torque: <span id="totalTorque">0</span></div>

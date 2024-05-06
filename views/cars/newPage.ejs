@@ -3,23 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
+    <title>BBB: Build</title>
 </head>
 
 <style>
 
+nav {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            padding: 20px;
+        }
+
 body {
+    font-family: 'Cinzel', serif;
     display: flex;
     flex-direction: column;
+    background: linear-gradient(to bottom, white, silver); 
 }
-
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 200px;
+    margin: 200px;
+    height: 500px;
+    width: 1700px;
+    background-image: url('/assets/giga.png');
+    background-size: cover;
+    box-shadow: inset 0 0 500px 100px rgb(255, 255, 255);
+    border-radius: 25px;
+}
 form {
+    font-family: 'Cinzel', serif;
+    color: red;
+    background-color: rgba(0, 0, 0, 0.9);
     display: flex;
     flex-direction: column;
     justify-content: left;
     width: 50%;
     margin: 0 auto;
-
+}
+.performance {
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 50%;
+    gap: 20px;
+    margin: 0 auto;
+    margin-top: -190px;
+    align-self: flex-start;
 }
 
 </style>
@@ -31,8 +69,11 @@ form {
 
 
 <body>
-    <h1>Time to build your car!</h1>
-    <h2>Your Budget is:</h2><p id="budget">$208,000</p>
+
+    <div class="container">
+        
+        <h1>Time to build your car!</h1>
+
     <form action="/new" method="POST" id="newBuild">
 
 <!-- Name Your New Car -->
@@ -42,8 +83,6 @@ form {
 <br>
 <!-- Customize Your New Car -->
 
-        <label for ="color">Choose a color:</label>
-        <input id="color" type="text" name="color">
 <br>
         <label for="chassis">Choose a chassis:</label>
         <select id="chassis" name="chassis" onchange="calculateTotals()">
@@ -120,17 +159,25 @@ form {
         <% }) %>
     </select>
     <br>
-    <button type="submit">Build Car</button>
+    <button type="submit">Race Your New Car!</button>
     </form>
 
-    <div>Total Power: <span id="totalPower">0</span></div>
-    <div>Total Torque: <span id="totalTorque">0</span></div>
-    <div>Total Cost: <span id="totalCost">0</span></div>
-    <div>Total Weight: <span id="totalWeight">0</span></div>
-    <div>Total Consumption: <span id="totalConsumption">0</span></div>
-    <div>Max Speed: <span id="maxspeed">0</span></div>
-    <div>Acceleration: <span id="acceleration">0</span></div>
+</div>
+
+<div class="performance">
+
+<div>Total Power: <span id="totalPower">0</span></div>
+<div>Total Torque: <span id="totalTorque">0</span></div>
+<div>Total Cost: <span id="totalCost">0</span></div>
+<div>Total Weight: <span id="totalWeight">0</span></div>
+<div>Total Consumption: <span id="totalConsumption">0</span></div>
+<div>Max Speed: <span id="maxspeed">0</span></div>
+<div>Acceleration: <span id="acceleration">0</span></div>
+
+</div>
+
 <script>
+
 
 function calculateTotals() {
     let totalPower = 0, totalCost = 0, totalWeight = 0, totalConsumption = 0, totalTorque = 0;

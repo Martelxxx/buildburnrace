@@ -3,15 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
+    <title>BBB: Race!</title>
 
     <style>
+
+nav {
+    font-family: "Cinzel", serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 20px;
+    }
         body, html {
+            font-family: "Cinzel", serif;
             height: 100%;
             margin: 0;
+            background: linear-gradient(to bottom, white, silver); 
+            background-size: cover;
             font-family: Arial, sans-serif;
         }
+        h1 {
+            font-family: "Cinzel", serif;
+            text-align: center;
+            color: black;
+            text-shadow: -1px 0 red, 0 1px blue, 1px 0 yellow, 0 -1px yellow;
+            font-size: 48px;
+        }
         .grid-container {
+            font-family: 'Cinzel', Times, serif;
             display: grid;
             grid-template-columns: 1fr 3fr 1fr;
             grid-template-areas: 
@@ -19,10 +41,21 @@
             height: 100%;
         }
         .userCar {
+            background-image: url('/assets/userPit.png');
+            font-weight: bold;
+            background-position: left;
+            /* text-shadow: -1px 0 yellow, 0 1px yellow, 1px 0 yellow, 0 -1px yellow; */
+            color: whitesmoke;
             grid-area: userCar;
             padding: 20px;
-            background-color: #f4f4f4;
-            height: 100vh;
+            box-shadow: inset 0 0 100px rgb(242, 38, 19, 1);
+            height: 100%;
+        }
+        .userCarData {
+            background-color: rgba(0, 0, 0, 0.9);
+            margin: 10px;
+            box-shadow: inset 0 0 100px rgb(242, 38, 19, 1);
+            padding: 10px;
         }
         .raceDisplay {
             margin-top: 20px;
@@ -32,12 +65,14 @@
             display: flex;
             flex-direction: column;
             padding: 10px;
-            background-color: #ddd;
+            background-image: url('/assets/blur.png');
+            background-size: cover;
             justify-content: center;
             align-items: center;
             font-size: 24px;
             align-self: flex-start;
-        }
+            box-shadow: inset 0 0 50px rgba(252, 251, 251, 1);
+}
         .versus {
             font-size: 48px;
             align-self: flex-start;
@@ -51,7 +86,8 @@
             justify-content: space-evenly;
             text-align: center;
             padding: 20px;
-            background-color: #f4f4f4;
+            background-image: url('/assets/race1.png');
+            background-size: cover;        
         }
         .raceData2 {
             border: 1px solid #000;
@@ -61,7 +97,8 @@
             justify-content: space-evenly;
             text-align: center;
             padding: 20px;
-            background-color: #f4f4f4;
+            background-image: url('/assets/race2.png');
+            background-size: cover;
         }
         .raceData3 {
             border: 1px solid #000;
@@ -71,7 +108,8 @@
             justify-content: space-evenly;
             text-align: center;
             padding: 20px;
-            background-color: #f4f4f4;
+            background-image: url('/assets/race3.png');
+            background-size: cover;
         }
         .raceData4 {
             border: 1px solid #000;
@@ -81,7 +119,8 @@
             justify-content: space-evenly;
             text-align: center;
             padding: 20px;
-            background-color: #f4f4f4;
+            background-image: url('/assets/race4.png');
+            background-size: cover;
         }
         .raceData5 {
             border: 1px solid #000;
@@ -91,7 +130,8 @@
             justify-content: space-evenly;
             text-align: center;
             padding: 20px;
-            background-color: #f4f4f4;
+            background-image: url('/assets/race5.png');
+            background-size: cover;
         }
         .raceData6 {
             border: 1px solid #000;
@@ -101,9 +141,13 @@
             justify-content: space-evenly;
             text-align: center;
             padding: 20px;
-            background-color: #f4f4f4;
+            background-image: url('/assets/race6.png');
+            background-size: cover;
         }
         .raceData1 p {
+            background-color: rgba(0, 0, 0, 0.9);
+            color: whitesmoke;
+            font-family: "Digital-Clock";
             margin: 10px;
             border: 1px solid #000; 
             padding: 10px;
@@ -112,6 +156,9 @@
             animation-delay: 1s
         } 
         .raceData2 p {
+            background-color: rgba(0, 0, 0, 0.9);
+            color: whitesmoke;
+            font-family: "Digital-Clock";
             margin: 10px;
             border: 1px solid #000; 
             padding: 10px; 
@@ -120,6 +167,9 @@
             animation-delay: 3s
         }
         .raceData3 p {
+            background-color: rgba(0, 0, 0, 0.9);
+            color: whitesmoke;
+            font-family: "Digital-Clock";
             margin: 10px;
             border: 1px solid #000; 
             padding: 10px;
@@ -128,6 +178,9 @@
             animation-delay: 5s 
         }
         .raceData4 p {
+            background-color: rgba(0, 0, 0, 0.9);
+            color: whitesmoke;
+            font-family: "Digital-Clock";
             margin: 10px;
             border: 1px solid #000; 
             padding: 10px;
@@ -136,6 +189,9 @@
             animation-delay: 7s 
         }
         .raceData5 p {
+            background-color: rgba(0, 0, 0, 0.9);
+            color: whitesmoke;
+            font-family: "Digital-Clock";
             margin: 10px;
             border: 1px solid #000; 
             padding: 10px;
@@ -144,6 +200,9 @@
             animation-delay: 9s 
         }
         .raceData6 p {
+            background-color: rgba(0, 0, 0, 0.9);
+            color: whitesmoke;
+            font-family: "Digital-Clock";
             margin: 10px;
             border: 1px solid #000; 
             padding: 10px;
@@ -152,21 +211,66 @@
             animation-delay: 11s 
         }
         .victor {
+            margin: 10px;
+            color: whitesmoke;
+            border: 1px solid yellow; 
+            padding: 10px;
+            display: flex;
+            flex-direction: row;
             opacity: 0;
             animation: fadeIn 2s ease-in forwards;
             animation-delay: 13s
         }
+        .buttons {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-evenly;
+            margin: 10px;
+        }
+        #back {
+            height: 20px;
+            border: 1px solid #000; 
+            animation: fadeIn 2s ease-in forwards;
+            animation-delay: 13s
+        }
+        #again {
+            height: 20px;
+            border: 1px solid #000; 
+            animation: fadeIn 2s ease-in forwards;
+            animation-delay: 13s
+        }
+        .victor p {
+            margin: 10px;
+            border: 1px solid red; 
+            padding: 10px;
+        }
         .opponentCar {
+            background-image: url('/assets/opPit.png');
             grid-area: opponentCar;
+            color: whitesmoke;
             padding: 20px;
-            background-color: #f4f4f4;
-            height: 100vh;
+            box-shadow: inset 0 0 100px rgb(45, 85, 255, 1);
+            height: 100%;
+        }
+        .opponentCarData {
+            background-color: rgba(0, 0, 0, 0.9);
+            margin: 10px;
+            box-shadow: inset 0 0 100px rgb(45, 85, 255, 1); 
+            padding: 10px;
         }
         @keyframes fadeIn {
-         to{
+            from {
+                opacity: 0;}
+            to {
             opacity: 1;
          }  
         }
+        @font-face {
+            font-family: "Digital-Clock";
+            src: url(/assets/DS-DIGI.TTF);
+         }
+        
     </style>
 
 </head>
@@ -337,9 +441,9 @@
             let ztoMax = (0.5 * ((maxspeed * 0.44704 / maxT) * (maxT * maxT)))
             %>
 
-<hr>
 <div class="grid-container">
     <div class="userCar">
+        <div class="userCarData">
 
             <h2><%= userCar.name %></h2> 
             <p>Total Power: <%= totalPower + " HP" %></p>
@@ -357,7 +461,7 @@
         <p>Drive Train: <%= userCar.driveTrain %></p> 
         <p>Weight Package: <%= userCar.weightSaving %></p> 
         <p>Craftsmanship: <%= userCar.craftsmanship %></p> 
-
+            </div>
     </div>
 
     <hr>
@@ -524,7 +628,7 @@ let ztoMaxOP = (0.5 * ((maxspeedOpponent * 0.44704 / maxTOP) * (maxTOP * maxTOP)
 <hr>
 
 <div class="opponentCar">
-
+<div class="opponentCarData">
 <h2><%= opponents.name %></h2> 
             <p>Total Power: <%= totalOpponentPower + " HP" %></p>
             <p>Total Torque: <%= totalOpponentTorque + " lb-ft" %></p>
@@ -541,7 +645,7 @@ let ztoMaxOP = (0.5 * ((maxspeedOpponent * 0.44704 / maxTOP) * (maxTOP * maxTOP)
         <p>Drive Train: <%= opponents.driveTrain %></p> 
         <p>Weight Package: <%= opponents.weightSaving %></p> 
         <p>Craftsmanship: <%= opponents.craftsmanship %></p> 
-
+            </div>
     </div>
 </body>
 
@@ -665,26 +769,18 @@ let ztoMaxOP = (0.5 * ((maxspeedOpponent * 0.44704 / maxTOP) * (maxTOP * maxTOP)
         <p>Opponent total time: <%= totalTrackTimeOpponent.toFixed(2) %> seconds</p>
         </div>   
         <div class="victor">
-            <% if(totalTrackTime < totalTrackTimeOpponent) { %>
+            <p>Your Avg Speed: <%= ((totalTrackLength / totalTrackTime) * 2.237).toFixed(0) %> MPH</p>
+            <p><% if(totalTrackTime < totalTrackTimeOpponent) { %>
                 <h2>You Win!</h2>
             <% } else { %>
                 <h2>You Lose!</h2>
-            <% } %>
+            <% } %></p>
+            <p>Opponent Avg Speed: <%= ((totalTrackLength / totalTrackTimeOpponent) * 2.237).toFixed(0) %> MPH</p>
         </div> 
-        <%= checkPoint5Opponent %>
-        <%= checkPoint4Opponent %>
-        <%= checkPoint3Opponent %>
-        <%= checkPoint2Opponent %>
-        <%= checkPoint1Opponent %>
-
-        <%= trackLength5 %>
-        <%= trackLength4 %>
-        <%= trackLength3 %>
-        <%= trackLength2 %>
-        <%= trackLength %>
-        
+<div class="buttons">
+        <button id="back" onclick="window.location.href='/cars'">Back</button>
+        <button id="again" onclick="window.location.reload()">Race Again!</button>
+</div>
     </div>
     </div>
-    <hr>
-
 </html>

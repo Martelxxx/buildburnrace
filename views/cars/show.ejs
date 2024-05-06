@@ -3,7 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
     <title><%= car.name %></title>
+
+    <style>
+
+nav {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            padding: 20px;
+        }
+
+body {
+    font-family: 'Cinzel', serif;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(to bottom, white, silver); 
+}        
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 200px;
+    margin: 200px;
+    height: 500px;
+    width: 1700px;
+    background-image: url('/assets/garage.png');
+    background-size: cover;
+    box-shadow: inset 0 0 500px 100px rgb(255, 255, 255);
+    border-radius: 25px;
+}
+.dream {
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+}
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+    </style>
 </head>
 <body>
 
@@ -14,17 +59,24 @@
     </nav>
     
 
-    <h1><%= car.name %></h1>
-    <p> Your <%= car.color %> <%= car.name %> has a <%= car.chassis %> chassis and is powered by a(n) <%= car.engine %> engine. It is <%= car.driveTrain %> and deploys <%= car.weightSaving %> Weight-Reduction Protocol. This beautiful car has <%= car.craftsmanship %> craftsmanship.</p>
-    <a href="/cars">Back to All Cars</a>
 
+    <h1><%= car.name %></h1>
+
+    <div class="container">
+        <div class="dream">
+    <p> Your <%= car.name %> has a <%= car.chassis %> chassis and is powered by a(n) <%= car.engine %> engine. It is <%= car.driveTrain %> and deploys <%= car.weightSaving %> Weight-Reduction Protocol. This beautiful car has <%= car.craftsmanship %> craftsmanship.</p>
+    
+<div class="buttons">
 <!-- Delete Button -->
     <form action="/cars/<%= car.id %>?_method=DELETE" method="POST">
         <button type="submit">Delete</button>
     </form>
 
 <!-- Edit Button -->
-    <a href="/cars/<%= car.id %>/edit">Edit</a>
-    <a href="/cars"></a>
+    <button><a href="/cars/<%= car.id %>/edit">Edit</a></button>
+    <button><a href="/cars">Back to All Cars</a></button>
+    </div>
+    </div>
+    </div>
 </body>
 </html>
