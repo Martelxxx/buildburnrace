@@ -63,6 +63,13 @@ const randomOpponent = Opponents[Math.floor(Math.random() * Opponents.length)];
         res.render('cars/race.ejs', { cars: cars, opponents: randomOpponent, userCar: lastCreatedVehicle[0], chassis: chassis, driveTrain: driveTrain, engine: engine, weightSaving: weightSaving, craftsmanship: craftsmanship });
 }); 
 
+//============ GET Gallery Route ============//
+
+app.get('/cars/gallery', async (req, res) => {
+    const cars = await Car.find();
+    res.render('cars/gallery.ejs');
+    }); 
+
 //============ GET Car Index Route ============// 
 
 app.get('/cars', async (req, res) => {  
